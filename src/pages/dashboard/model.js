@@ -1,11 +1,12 @@
 import { parse } from 'qs'
 import modelExtend from 'dva-model-extend'
 import api from 'api'
-const { pathToRegexp } = require("path-to-regexp")
+const { pathToRegexp } = require('path-to-regexp')
 import { model } from 'utils/model'
 
 const { queryDashboard, queryWeather, getData } = api
-const avatar = '//cdn.antd-admin.zuiidea.com/bc442cf0cc6f7940dcc567e465048d1a8d634493198c4-sPx5BR_fw236.jpeg'
+const avatar =
+  '//cdn.antd-admin.zuiidea.com/bc442cf0cc6f7940dcc567e465048d1a8d634493198c4-sPx5BR_fw236.jpeg'
 
 export default modelExtend(model, {
   namespace: 'dashboard',
@@ -45,10 +46,10 @@ export default modelExtend(model, {
   },
   effects: {
     *query({ payload }, { call, put }) {
-      console.log(222);
+      console.log(222)
       const data = yield call(getData)
-      console.log(data);
-      console.log(2);
+      console.log(data)
+      console.log(2)
       // const data = yield call(queryDashboard, parse(payload))
       // yield put({
       //   type: 'updateState',

@@ -15,6 +15,6 @@ export default {
   queryPostList: '/posts',
 
   queryDashboard: '/dashboard',
-  addArticle:'POST /article',
-  getData:'/bar'
+  addArticle: 'POST /insertData',
+  getData: '/bar',
 }

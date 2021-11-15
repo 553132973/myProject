@@ -3,11 +3,9 @@ import { request, config } from 'utils'
 const { api } = config
 const { dashboard } = api
 
-export function query(params) {
+export function query() {
   return request({
-    url: dashboard,
+    url: '/bar',
     method: 'get',
-    data: params,
   })
 }
-

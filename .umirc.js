@@ -53,11 +53,11 @@ export default {
   },
   // Webpack Configuration
   proxy: {
-    '/api/v1/weather': {
-      // target: 'https://api.seniverse.com/',
-      target: 'http://localhost:3000/',
+    '/api/v1': {
+      // target: 'http://jsonplaceholder.typicode.com/',
+      target: 'http://127.0.0.1:3000/',
       changeOrigin: true,
-      pathRewrite: { '^/api/v1/weather': '/v3/weather' },
+      pathRewrite: { '^/api/v1': '' },
     },
   },
   targets: { ie: 9 },

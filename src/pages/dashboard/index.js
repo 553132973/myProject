@@ -12,7 +12,6 @@ import EditableTable from './components/EditableTable'
 }))
 class Dashboard extends PureComponent {
   componentWillMount() {
-    console.log(1);
     const { dispatch } = this.props
     dispatch({
       type: 'dashboard/query',
@@ -22,7 +21,7 @@ class Dashboard extends PureComponent {
   render() {
     return (
       <Page className={styles.dashboard}>
-        <button >提交</button>
+        <button>提交</button>
         <p>sss</p>
         <EditableTable />
       </Page>

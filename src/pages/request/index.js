@@ -1,7 +1,17 @@
 import React from 'react'
 import { request } from 'utils'
 import { apiPrefix } from 'utils/config'
-import { Row, Col, Select, Form, Input, Button, List, Tag, Checkbox } from 'antd'
+import {
+  Row,
+  Col,
+  Select,
+  Form,
+  Input,
+  Button,
+  List,
+  Tag,
+  Checkbox,
+} from 'antd'
 import classnames from 'classnames'
 import { CloseOutlined } from '@ant-design/icons'
 import { Trans } from '@lingui/react'
@@ -21,7 +31,7 @@ const methodTagColor = {
   PUT: 'geekblue',
 }
 
-const requests = Object.values(api).map(item => {
+const requests = Object.values(api).map((item) => {
   let url = apiPrefix + item
   let method = 'GET'
   const paramsArray = item.split(' ')
@@ -52,8 +62,9 @@ class RequestPage extends React.Component {
   handleRequest = () => {
     const { method, url } = this.state
 
-    this.formRef.current.validateFields()
-      .then(values => {
+    this.formRef.current
+      .validateFields()
+      .then((values) => {
         // values: { check[1]: true, key[1]: 'username', value[1]: 'admin' }
 
         const params = {}
@@ -65,13 +76,13 @@ class RequestPage extends React.Component {
           }
         }
 
-        request({ method, url, data: params }).then(data => {
+        request({ method, url, data: params }).then((data) => {
           this.setState({
             result: JSON.stringify(data),
           })
         })
       })
-      .catch(errorInfo => {
+      .catch((errorInfo) => {
         console.log(errorInfo)
         /*
         errorInfo:
@@ -98,13 +109,13 @@ class RequestPage extends React.Component {
     })
   }
 
-  handleInputChange = e => {
+  handleInputChange = (e) => {
     this.setState({
       url: e.target.value,
     })
   }
 
-  handleSelectChange = method => {
+  handleSelectChange = (method) => {
     this.setState({
       method,
     })
@@ -119,10 +130,10 @@ class RequestPage extends React.Component {
     })
   }
 
-  handleRemoveField = key => {
+  handleRemoveField = (key) => {
     const { keys } = this.state
     this.setState({
-      keys: keys.filter(item => item !== key),
+      keys: keys.filter((item) => item !== key),
     })
   }
 
@@ -142,7 +153,7 @@ class RequestPage extends React.Component {
             <List
               className={styles.requestList}
               dataSource={requests}
-              renderItem={item => (
+              renderItem={(item) => (
                 <List.Item
                   className={classnames(styles.listItem, {
                     [styles.lstItemActive]:
@@ -172,7 +183,7 @@ class RequestPage extends React.Component {
                   style={{ width: 100 }}
                   onChange={this.handleSelectChange}
                 >
-                  {methods.map(item => (
+                  {methods.map((item) => (
                     <Option value={item} key={item}>
                       {item}
                     </Option>
@@ -202,7 +213,7 @@ class RequestPage extends React.Component {
                 <Trans>Send</Trans>
               </Button>
             </Row>
-            <Form ref={this.formRef} name="control-ref" >
+            <Form ref={this.formRef} name="control-ref">
               <div
                 className={classnames(styles.paramsBlock, {
                   [styles.hideParams]: !visible,
