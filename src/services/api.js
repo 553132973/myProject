@@ -17,4 +17,5 @@ export default {
   queryDashboard: '/dashboard',
   addArticle: 'POST /insertData',
   getData: '/bar',
+  articleData: '/getData',
 }

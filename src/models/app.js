@@ -3,14 +3,14 @@
 import { history } from 'umi'
 import { stringify } from 'qs'
 import store from 'store'
-const { pathToRegexp } = require("path-to-regexp")
+const { pathToRegexp } = require('path-to-regexp')
 import { ROLE_TYPE } from 'utils/constant'
 import { queryLayout } from 'utils'
 import { CANCEL_REQUEST_MESSAGE } from 'utils/constant'
 import api from 'api'
 import config from 'config'
 
-const { queryRouteList, logoutUser, queryUserInfo } = api
+const { queryRouteList, logoutUser, queryUserInfo, articleData } = api
 
 const goDashboard = () => {
   if (pathToRegexp(['/', '/login']).exec(window.location.pathname)) {
@@ -46,13 +46,14 @@ export default {
         date: new Date(Date.now() - 50000000),
       },
     ],
+    articleData: [],
   },
   subscriptions: {
     setup({ dispatch }) {
       dispatch({ type: 'query' })
     },
     setupHistory({ dispatch, history }) {
-      history.listen(location => {
+      history.listen((location) => {
         dispatch({
           type: 'updateState',
           payload: {
@@ -78,15 +79,13 @@ export default {
   },
   effects: {
     *query({ payload }, { call, put, select }) {
-      // store isInit to prevent query trigger by refresh
       const isInit = store.get('isInit')
       if (isInit) {
         goDashboard()
         return
       }
-      const { locationPathname } = yield select(_ => _.app)
+      const { locationPathname } = yield select((_) => _.app)
       const { success, user } = yield call(queryUserInfo, payload)
-      console.log(user);
       if (success && user) {
         const { list } = yield call(queryRouteList)
         const { permissions } = user
@@ -95,9 +94,9 @@ export default {
           permissions.role === ROLE_TYPE.ADMIN ||
           permissions.role === ROLE_TYPE.DEVELOPER
         ) {
-          permissions.visit = list.map(item => item.id)
+          permissions.visit = list.map((item) => item.id)
         } else {
-          routeList = list.filter(item => {
+          routeList = list.filter((item) => {
             const cases = [
               permissions.visit.includes(item.id),
               item.mpid
@@ -105,7 +104,7 @@ export default {
                 : true,
               item.bpid ? permissions.visit.includes(item.bpid) : true,
             ]
-            return cases.every(_ => _)
+            return cases.every((_) => _)
           })
         }
         store.set('routeList', routeList)
@@ -134,6 +133,11 @@ export default {
       } else {
         throw data
       }
+    },
+
+    *articleList({ payload }, { call, put }) {
+      const data = yield call(articleData, payload)
+      console.log(data)
     },
   },
   reducers: {

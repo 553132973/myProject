@@ -7,31 +7,30 @@ const database = [
     icon: 'dashboard',
     name: 'Dashboard',
     zh: {
-      name: '管理首页'
+      name: '管理首页',
     },
     'pt-br': {
-      name: 'Dashboard'
+      name: 'Dashboard',
     },
     route: '/dashboard',
   },
   {
-    id:'6',
+    id: '6',
     name: 'issue',
     zh: {
-      name: '发表文章'
+      name: '发表文章',
     },
     icon: 'edit',
     route: '/issue',
   },
   {
     id: '2',
-    // breadcrumbParentId: '1',
     name: 'Users',
     zh: {
-      name: '用户管理'
+      name: '用户管理',
     },
     'pt-br': {
-      name: 'Usuário'
+      name: 'Usuário',
     },
     icon: 'user',
     route: '/user',
@@ -41,12 +40,12 @@ const database = [
     breadcrumbParentId: '1',
     name: 'Posts',
     zh: {
-      name: '用户管理'
+      name: '用户管理',
     },
     'pt-br': {
-      name: 'Posts'
+      name: 'Posts',
     },
-    icon: 'shopping-cart',
+    // icon: 'shopping-cart',
     route: '/post',
   },
   {
@@ -55,10 +54,10 @@ const database = [
     breadcrumbParentId: '2',
     name: 'User Detail',
     zh: {
-      name: '用户详情'
+      name: '用户详情',
     },
     'pt-br': {
-      name: 'Detalhes do usuário'
+      name: 'Detalhes do usuário',
     },
     route: '/user/:id',
   },
@@ -67,12 +66,12 @@ const database = [
     breadcrumbParentId: '1',
     name: 'Request',
     zh: {
-      name: 'Request'
+      name: 'Request',
     },
     'pt-br': {
-      name: 'Requisição'
+      name: 'Requisição',
     },
-    icon: 'api',
+    // icon: 'api',
     route: '/request',
   },
   {
@@ -80,12 +79,12 @@ const database = [
     breadcrumbParentId: '1',
     name: 'UI Element',
     zh: {
-      name: 'UI组件'
+      name: 'UI组件',
     },
     'pt-br': {
-      name: 'Elementos UI'
+      name: 'Elementos UI',
     },
-    icon: 'camera-o',
+    // icon: 'camera-o',
   },
   {
     id: '45',
@@ -93,13 +92,22 @@ const database = [
     menuParentId: '4',
     name: 'Editor',
     zh: {
-      name: 'Editor'
+      name: 'Editor',
     },
     'pt-br': {
-      name: 'Editor'
+      name: 'Editor',
     },
-    icon: 'edit',
+    // icon: 'edit',
     route: '/editor',
+  },
+  {
+    id: '66',
+    name: 'articleList',
+    zh: {
+      name: '文章列表',
+    },
+    icon: 'YuqueOutlined',
+    route: '/articleList',
   },
   // {
   //   id: '5',
