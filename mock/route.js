@@ -35,19 +35,19 @@ const database = [
     icon: 'user',
     route: '/user',
   },
-  {
-    id: '7',
-    breadcrumbParentId: '1',
-    name: 'Posts',
-    zh: {
-      name: '用户管理',
-    },
-    'pt-br': {
-      name: 'Posts',
-    },
-    // icon: 'shopping-cart',
-    route: '/post',
-  },
+  // {
+  //   id: '7',
+  //   breadcrumbParentId: '1',
+  //   name: 'Posts',
+  //   zh: {
+  //     name: '用户管理',
+  //   },
+  //   'pt-br': {
+  //     name: 'Posts',
+  //   },
+  //   // icon: 'shopping-cart',
+  //   route: '/post',
+  // },
   {
     id: '21',
     menuParentId: '-1',
@@ -71,7 +71,6 @@ const database = [
     'pt-br': {
       name: 'Requisição',
     },
-    // icon: 'api',
     route: '/request',
   },
   {
@@ -84,7 +83,6 @@ const database = [
     'pt-br': {
       name: 'Elementos UI',
     },
-    // icon: 'camera-o',
   },
   {
     id: '45',
@@ -109,60 +107,14 @@ const database = [
     icon: 'YuqueOutlined',
     route: '/articleList',
   },
-  // {
-  //   id: '5',
-  //   breadcrumbParentId: '1',
-  //   name: 'Charts',
-  //   zh: {
-  //     name: 'Charts'
-  //   },
-  //   'pt-br': {
-  //     name: 'Graficos'
-  //   },
-  //   icon: 'code-o',
-  // },
-  // {
-  //   id: '51',
-  //   breadcrumbParentId: '5',
-  //   menuParentId: '5',
-  //   name: 'ECharts',
-  //   zh: {
-  //     name: 'ECharts'
-  //   },
-  //   'pt-br': {
-  //     name: 'ECharts'
-  //   },
-  //   icon: 'line-chart',
-  //   route: '/chart/ECharts',
-  // },
-  // {
-  //   id: '52',
-  //   breadcrumbParentId: '5',
-  //   menuParentId: '5',
-  //   name: 'HighCharts',
-  //   zh: {
-  //     name: 'HighCharts'
-  //   },
-  //   'pt-br': {
-  //     name: 'HighCharts'
-  //   },
-  //   icon: 'bar-chart',
-  //   route: '/chart/highCharts',
-  // },
-  // {
-  //   id: '53',
-  //   breadcrumbParentId: '5',
-  //   menuParentId: '5',
-  //   name: 'Rechartst',
-  //   zh: {
-  //     name: 'Rechartst'
-  //   },
-  //   'pt-br': {
-  //     name: 'Rechartst'
-  //   },
-  //   icon: 'area-chart',
-  //   route: '/chart/Recharts',
-  // },
+  {
+    id: '67',
+    name: 'mockData',
+    zh: {
+      name: 'mock数据',
+    },
+    route: '/mockData',
+  },
 ]
 
 module.exports = {

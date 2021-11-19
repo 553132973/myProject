@@ -67,7 +67,6 @@ export default {
     setupRequestCancel({ history }) {
       history.listen(() => {
         const { cancelRequest = new Map() } = window
-
         cancelRequest.forEach((value, key) => {
           if (value.pathname !== window.location.pathname) {
             value.cancel(CANCEL_REQUEST_MESSAGE)
@@ -137,7 +136,14 @@ export default {
 
     *articleList({ payload }, { call, put }) {
       const data = yield call(articleData, payload)
-      console.log(data)
+      if (data.status === 200) {
+        yield put({
+          type: 'updateState',
+          payload: {
+            articleData: data.data,
+          },
+        })
+      }
     },
   },
   reducers: {
